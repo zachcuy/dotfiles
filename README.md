@@ -1,9 +1,9 @@
 # Read My Docs (or not)
 
-Platform:\
-    - Ubuntu 22.04 (or whatever, idk)\
+### Platform
+    - Ubuntu 22.04 (or whatever, idk)
 
-Dependencies:\
+### Dependencies
     - build-essentials\
     - rustup / cargo\
     - kitty (terminal)\
@@ -17,9 +17,9 @@ Dependencies:\
         - (go here: "https://www.nerdfonts.com/")\
     - install starship\
         - (go here: "https://starship.rs/")\
-    - put the stuff in your ~/.config/ and $HOME folders\
+    - put the stuff in your "~/.config/" and "$HOME" folders
 
-My dev stuff:\
+### My dev stuff
     - make\
     - cmake\
     - gcc / g++\
@@ -29,4 +29,4 @@ My dev stuff:\
     - cmake-language-server\
     - cmakelang\
     - cmakelint\
-    - neocmakelsp\
+    - neocmakelsp
