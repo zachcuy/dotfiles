@@ -107,6 +107,7 @@ M.config = function()
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },
+      expandable_indicator = true,
       format = function(entry, vim_item)
         local kind = lspkind.cmp_format({
           mode = "symbol_text",
@@ -115,7 +116,6 @@ M.config = function()
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
         kind.kind = " " .. strings[1] .. " "
         kind.menu = "    (" .. strings[2] .. ")"
-
         return kind
       end,
     },

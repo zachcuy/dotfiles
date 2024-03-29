@@ -2,10 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.opt.tabstop = 4 -- Sets the number of spaces that a tab is represented by
-vim.opt.shiftwidth = 4 -- Sets the width for autoindents
-vim.opt.expandtab = true -- Converts tabs to spaces
-
 return {
   {
     "echasnovski/mini.comment",

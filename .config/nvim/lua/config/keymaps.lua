@@ -1,6 +1,11 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- tabing shit
+vim.opt.tabstop = 4 -- Sets the number of spaces that a tab is represented by
+vim.opt.shiftwidth = 4 -- Sets the width for autoindents
+vim.opt.expandtab = true -- Converts tabs to spaces
+
 -- clipboard shit
 vim.opt.clipboard = "unnamedplus"
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -20,8 +25,8 @@ keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
 -- File explorer with NvimTree
-keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
-keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
+-- keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
+-- keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
 
 -- Tabs
 keymap.set("n", "te", ":tabedit")
