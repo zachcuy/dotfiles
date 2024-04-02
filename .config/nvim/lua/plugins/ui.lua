@@ -52,6 +52,31 @@ return {
 
       opts.presets.lsp_doc_border = true
     end,
+    config = function()
+      require("noice").setup({
+        lsp = {
+          signature = {
+            enabled = true,
+          },
+          hover = {
+            enabled = true,
+          },
+        },
+        messages = {
+          enabled = true,
+          -- view = ""
+        },
+        notify = {
+          enabled = true,
+        },
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+      },
+    },
   },
 
   -- notifications
@@ -114,6 +139,7 @@ return {
   -- LazyGit integration with Telescope
   {
     "kdheepak/lazygit.nvim",
+    after = "catppuccin",
     keys = {
       {
         ";c",

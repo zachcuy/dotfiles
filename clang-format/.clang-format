@@ -12,7 +12,7 @@ AllowAllArgumentsOnNextLine: true
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortEnumsOnASingleLine: false
-AllowShortBlocksOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: false
 AllowShortLambdasOnASingleLine: All
@@ -27,7 +27,7 @@ BinPackParameters: false
 BraceWrapping:
   AfterCaseLabel: false
   AfterClass: true
-  AfterControlStatement: MultiLine
+  AfterControlStatement: Always
   AfterEnum: true
   AfterFunction: true
   AfterNamespace: true
@@ -35,8 +35,8 @@ BraceWrapping:
   AfterStruct: true
   AfterUnion: true
   AfterExternBlock: true
-  BeforeCatch: false
-  BeforeElse: false
+  BeforeCatch: true
+  BeforeElse: true
   BeforeLambdaBody: true
   BeforeWhile: false
   IndentBraces: false
@@ -52,7 +52,7 @@ BreakConstructorInitializersBeforeComma: true
 BreakConstructorInitializers: BeforeComma
 BreakAfterJavaFieldAnnotations: true
 BreakStringLiterals: true
-ColumnLimit: 80
+ColumnLimit: 88
 CommentPragmas: '^ IWYU pragma:'
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false

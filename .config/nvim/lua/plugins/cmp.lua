@@ -53,8 +53,10 @@ M.config = function()
       ["<C-j>"] = cmp.mapping.scroll_docs(4),
       ["<C-k>"] = cmp.mapping.scroll_docs(-4),
 
-      ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
-      ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
+      ["<C-b>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
+
+      ["<C-m>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
+      ["<C-n>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
 
       ["<C-f>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "c" }),
 

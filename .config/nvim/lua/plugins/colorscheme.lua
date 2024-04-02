@@ -8,6 +8,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    priority = 1000,
     opts = {
       term_colors = true,
       transparent_background = false,
@@ -30,6 +31,7 @@ return {
         symbols_outline = true,
         alpha = true,
         dashboard = true,
+        dap = true,
         flash = true,
         headlines = true,
         illuminate = true,
@@ -40,16 +42,24 @@ return {
         markdown = true,
         native_lsp = {
           enabled = true,
+          virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+          },
           underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
+          },
+          inlay_hints = {
+            background = true,
           },
         },
         navic = { enabled = true, custom_bg = "lualine" },
         neotest = true,
-        neotree = true,
         noice = true,
         semantic_tokens = true,
         treesitter_context = true,
