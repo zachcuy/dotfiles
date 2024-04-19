@@ -8,3 +8,9 @@ alias repos='cd $HOME/.repos/'
 alias downloads='cd $HOME/Downloads/'
 alias documents='cd $HOME/Documents/'
 alias config='cd $HOME/.config/'
+
+# neovim plugins folder
+alias plugins='cd $HOME/.config/nvim/lua/'
+
+# eza (pretty directory tree)
+alias tree='eza --tree'
