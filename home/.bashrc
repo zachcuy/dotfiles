@@ -121,6 +121,8 @@ fi
 . "$HOME/.cargo/env"
 
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+# export JAVA_HOME="/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+# export PATH="$JAVA_HOME/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm

@@ -74,3 +74,5 @@ fi
 
 # Delete all files and directories in the target directory
 rm -rf "$TARGET_DIR"/*
+
+export STM32CubeMX_PATH=/home/dev/STM32CubeMX

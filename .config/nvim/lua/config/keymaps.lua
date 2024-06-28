@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- tabing shit
+-- tabbing shit
 vim.opt.tabstop = 4 -- Sets the number of spaces that a tab is represented by
 vim.opt.shiftwidth = 4 -- Sets the width for autoindents
 vim.opt.expandtab = true -- Converts tabs to spaces
@@ -40,10 +40,10 @@ keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 
 -- Resize window
-keymap.set("n", "<C-S-h>", "<C-w><")
-keymap.set("n", "<C-S-l>", "<C-w>>")
-keymap.set("n", "<C-S-k>", "<C-w>+")
-keymap.set("n", "<C-S-j>", "<C-w>-")
+keymap.set("n", "<C-S-h>", "2<C-w><")
+keymap.set("n", "<C-S-l>", "2<C-w>>")
+keymap.set("n", "<C-S-k>", "2<C-w>+")
+keymap.set("n", "<C-S-j>", "2<C-w>-")
 
 -- Close buffer without closing window
 keymap.set("n", "<C-w>q", ":new<BAR>bd#<CR>", opts)
@@ -67,3 +67,8 @@ keymap.set("n", "N", "Nzz")
 -- map p (lower) to P (upper) in visual mode to not stomp on register
 keymap.set("v", "p", "P")
 keymap.set("v", "P", "p")
+
+keymap.set("n", "<Leader>p", ":Telescope notify<Return>")
+
+-- oil
+keymap.set("n", "<Leader>o", ":Oil<Return>")
