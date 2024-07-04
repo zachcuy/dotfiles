@@ -1,11 +1,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- tabbing shit
-vim.opt.tabstop = 4 -- Sets the number of spaces that a tab is represented by
-vim.opt.shiftwidth = 4 -- Sets the width for autoindents
-vim.opt.expandtab = true -- Converts tabs to spaces
-
 -- clipboard shit
 vim.opt.clipboard = "unnamedplus"
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -50,7 +45,7 @@ keymap.set("n", "<C-w>q", ":new<BAR>bd#<CR>", opts)
 -- keymap.set("n", "<C-w><C-q>", ":new<BAR>bd#<CR>", opts)
 
 -- no more tab
-keymap.del("i", "<Tab>", opts)
+-- keymap.del("i", "<Tab>", opts)
 
 -- move up/down work on wrapped lines of text
 keymap.set("n", "j", "gj")
@@ -68,7 +63,8 @@ keymap.set("n", "N", "Nzz")
 keymap.set("v", "p", "P")
 keymap.set("v", "P", "p")
 
-keymap.set("n", "<Leader>p", ":Telescope notify<Return>")
+-- search notifications
+keymap.set("n", "<Leader>xp", ":Telescope notify<Return>")
 
--- oil
+-- open oil
 keymap.set("n", "<Leader>o", ":Oil<Return>")
