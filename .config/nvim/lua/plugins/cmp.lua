@@ -32,13 +32,14 @@ local M = {
 
 M.config = function()
   local cmp = require("cmp")
+  local compare = require("cmp.config.compare")
   local luasnip = require("luasnip")
   local lspkind = require("lspkind")
 
-  local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  end
+  -- local has_words_before = function()
+  --   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  --   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  -- end
 
   cmp.setup({
     completion = {
@@ -47,8 +48,8 @@ M.config = function()
 
     mapping = {
       ["<C-e>"] = cmp.mapping.abort(),
-      ["<Down>"] = cmp.mapping.abort(),
-      ["<Up>"] = cmp.mapping.abort(),
+      -- ["<Down>"] = cmp.mapping.abort(),
+      -- ["<Up>"] = cmp.mapping.abort(),
 
       ["<C-j>"] = cmp.mapping.scroll_docs(4),
       ["<C-k>"] = cmp.mapping.scroll_docs(-4),
@@ -61,7 +62,7 @@ M.config = function()
       ["<C-f>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "c" }),
 
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
+        if luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
         else
           fallback()
@@ -69,7 +70,7 @@ M.config = function()
       end, { "i", "s" }),
 
       ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
+        if luasnip.locally_jumpable(-1) then
           luasnip.jump(-1)
         else
           fallback()
@@ -81,10 +82,9 @@ M.config = function()
       { name = "vim-dadbod-completion" },
       { name = "nvim_lsp" },
       { name = "luasnip" },
+      { name = "nvim_lsp_signature_help" },
       { name = "path" },
-
       { name = "nvim_lua" },
-
       { name = "calc" },
       { name = "emoji" },
       { name = "spell", keyword_length = 4 },
@@ -107,20 +107,45 @@ M.config = function()
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       }),
     },
+
+    sorting = { ---@diagnostic disable-line: missing-fields
+      comparators = {
+        -- defaults: https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/default.lua#L67-L78
+        -- compare functions https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
+        compare.offset,
+        compare.recently_used, -- higher
+        compare.score,
+        compare.kind, -- higher (prioritize snippets)
+        compare.exact, -- lower
+        compare.locality,
+        compare.length,
+        compare.order,
+      },
+    },
+
     formatting = {
       fields = { "kind", "abbr", "menu" },
       expandable_indicator = true,
       format = function(entry, vim_item)
+        -- don't allow multiple entries for the same thing if it's provided by nvim_lsp
+        local source = entry.source.name
+        if source == "nvim_lsp" then
+          vim_item.dup = 0
+        end
+
         local kind = lspkind.cmp_format({
           mode = "symbol_text",
           maxwidth = 50,
         })(entry, vim_item)
+
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
         kind.kind = " " .. strings[1] .. " "
-        kind.menu = "    (" .. strings[2] .. ")"
+        kind.menu = "    (" .. strings[2] .. ")   "
+
         return kind
       end,
     },
+
     view = {
       entries = { name = "custom", selection_order = "near_cursor" },
     },
