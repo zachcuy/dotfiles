@@ -52,8 +52,8 @@ keymap.set("n", "j", "gj")
 keymap.set("n", "k", "gk")
 
 -- re-center cursor after jumps up/down
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-d>", "20<C-d>zz")
+keymap.set("n", "<C-u>", "20<C-u>zz")
 
 -- re-center cursor after search movements up/down
 keymap.set("n", "n", "nzz")
