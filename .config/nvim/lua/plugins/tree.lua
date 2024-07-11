@@ -27,21 +27,30 @@ return {
           -- custom mappings
           vim.keymap.set("n", "t", api.node.open.tab, opts("Tab"))
         end,
+
+        update_focused_file = {
+          enable = true,
+        },
+
         actions = {
           open_file = {
             quit_on_open = true,
           },
         },
+
         git = {
           enable = true,
         },
+
         sort = {
           sorter = "case_sensitive",
         },
+
         view = {
           adaptive_size = true,
           relativenumber = true,
         },
+
         renderer = {
           group_empty = true,
           highlight_git = true,
@@ -51,12 +60,14 @@ return {
             },
           },
         },
+
         filters = {
           dotfiles = false,
           custom = {
             "node_modules/.*",
           },
         },
+
         log = {
           enable = true,
           truncate = true,
