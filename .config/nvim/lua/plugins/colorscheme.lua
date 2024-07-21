@@ -85,6 +85,14 @@ return {
       custom_highlights = function(colors)
         return {
           Comment = { fg = colors.sky },
+          NormalMoody = { fg = colors.blue },
+          InsertMoody = { fg = colors.green },
+          VisualMoody = { fg = colors.pink },
+          CommandMoody = { fg = colors.maroon },
+          ReplaceMoody = { fg = colors.red },
+          SelectMoody = { fg = colors.pink },
+          TerminalMoody = { fg = colors.mauve },
+          TerminalNormalMoody = { fg = colors.mauve },
         }
       end,
     },

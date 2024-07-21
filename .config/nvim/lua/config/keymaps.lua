@@ -42,10 +42,6 @@ keymap.set("n", "<C-S-j>", "2<C-w>-")
 
 -- Close buffer without closing window
 keymap.set("n", "<C-w>q", ":new<BAR>bd#<CR>", opts)
--- keymap.set("n", "<C-w><C-q>", ":new<BAR>bd#<CR>", opts)
-
--- no more tab
--- keymap.del("i", "<Tab>", opts)
 
 -- move up/down work on wrapped lines of text
 keymap.set("n", "j", "gj")
@@ -54,6 +50,10 @@ keymap.set("n", "k", "gk")
 -- re-center cursor after jumps up/down
 keymap.set("n", "<C-d>", "20<C-d>zz")
 keymap.set("n", "<C-u>", "20<C-u>zz")
+
+-- visual select move down
+keymap.set("v", "<C-d>", "20<C-d>zz")
+keymap.set("v", "<C-u>", "20<C-u>zz")
 
 -- re-center cursor after search movements up/down
 keymap.set("n", "n", "nzz")

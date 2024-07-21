@@ -1,10 +1,5 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
-  },
-
-  {
     "nvim-tree/nvim-tree.lua",
     config = function()
       require("nvim-tree").setup({

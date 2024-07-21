@@ -23,7 +23,7 @@ local M = {
 
     -- command line
     "hrsh7th/cmp-cmdline",
-    "dmitmel/cmp-cmdline-history",
+    -- "dmitmel/cmp-cmdline-history",
 
     -- search
     "hrsh7th/cmp-buffer",
@@ -35,11 +35,6 @@ M.config = function()
   local compare = require("cmp.config.compare")
   local luasnip = require("luasnip")
   local lspkind = require("lspkind")
-
-  -- local has_words_before = function()
-  --   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  --   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  -- end
 
   cmp.setup({
     completion = {
@@ -79,10 +74,9 @@ M.config = function()
     },
 
     sources = {
-      { name = "vim-dadbod-completion" },
       { name = "nvim_lsp" },
-      { name = "luasnip" },
       { name = "nvim_lsp_signature_help" },
+      { name = "luasnip" },
       { name = "path" },
       { name = "nvim_lua" },
       { name = "calc" },
@@ -130,7 +124,7 @@ M.config = function()
         -- don't allow multiple entries for the same thing if it's provided by nvim_lsp
         local source = entry.source.name
         if source == "nvim_lsp" then
-          vim_item.dup = 0
+          vim_item.dup = nil
         end
 
         local kind = lspkind.cmp_format({

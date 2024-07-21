@@ -5,7 +5,7 @@ return {
     cmd = "Spectre",
     opts = {
       open_cmd = "noswapfile vnew",
-      live_update = true, -- auto execute search again when you write to any file in vim
+      live_update = false, -- auto execute search again when you write to any file in vim
       lnum_for_results = true, -- show line number for search/replace results
     },
   -- stylua: ignore
