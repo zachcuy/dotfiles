@@ -3,68 +3,69 @@ local opts = { noremap = true, silent = true }
 
 -- clipboard shit
 vim.opt.clipboard = "unnamedplus"
-keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-keymap.set("n", "<leader>Y", [["+Y]])
 keymap.set({ "n", "v" }, "<C-c>", [["+y]])
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
+-- increment/decrement
+keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
--- Select all
+-- select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
--- Save file and quit
+-- save file and quit
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
--- File explorer with NvimTree
+-- file explorer with NvimTree
 keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
 keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
 keymap.set("n", "<Leader>e", ":NvimTreeToggle<Return>", opts)
 
--- Split window
+-- split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
 
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
+-- move window
+keymap.set("n", "sh", "<C-w>h", opts)
+keymap.set("n", "sk", "<C-w>k", opts)
+keymap.set("n", "sj", "<C-w>j", opts)
+keymap.set("n", "sl", "<C-w>l", opts)
 
--- Resize window
-keymap.set("n", "<C-S-h>", "2<C-w><")
-keymap.set("n", "<C-S-l>", "2<C-w>>")
-keymap.set("n", "<C-S-k>", "2<C-w>+")
-keymap.set("n", "<C-S-j>", "2<C-w>-")
+-- resize window
+keymap.set("n", "<C-S-h>", "2<C-w><", opts)
+keymap.set("n", "<C-S-l>", "2<C-w>>", opts)
+keymap.set("n", "<C-S-k>", "2<C-w>+", opts)
+keymap.set("n", "<C-S-j>", "2<C-w>-", opts)
 
--- Close buffer without closing window
+-- close buffer without closing window
 keymap.set("n", "<C-w>q", ":new<BAR>bd#<CR>", opts)
 
 -- move up/down work on wrapped lines of text
-keymap.set("n", "j", "gj")
-keymap.set("n", "k", "gk")
+keymap.set("n", "j", "gj", opts)
+keymap.set("n", "k", "gk", opts)
 
 -- re-center cursor after jumps up/down
-keymap.set("n", "<C-d>", "20<C-d>zz")
-keymap.set("n", "<C-u>", "20<C-u>zz")
+keymap.set("n", "<C-d>", "20<C-d>zz", opts)
+keymap.set("n", "<C-u>", "20<C-u>zz", opts)
 
 -- visual select move down
-keymap.set("v", "<C-d>", "20<C-d>zz")
-keymap.set("v", "<C-u>", "20<C-u>zz")
+keymap.set("v", "<C-d>", "20<C-d>zz", opts)
+keymap.set("v", "<C-u>", "20<C-u>zz", opts)
 
 -- re-center cursor after search movements up/down
-keymap.set("n", "n", "nzz")
-keymap.set("n", "N", "Nzz")
+keymap.set("n", "n", "nzz", opts)
+keymap.set("n", "N", "Nzz", opts)
 
 -- map p (lower) to P (upper) in visual mode to not stomp on register
-keymap.set("v", "p", "P")
-keymap.set("v", "P", "p")
+keymap.set("v", "p", "P", opts)
+keymap.set("v", "P", "p", opts)
 
 -- search notifications
-keymap.set("n", "<Leader>xp", ":Telescope notify<Return>")
+keymap.set("n", "<Leader>xp", ":Telescope notify<Return>", opts)
 
 -- open oil
-keymap.set("n", "<Leader>o", ":Oil<Return>")
+keymap.set("n", "<Leader>o", ":Oil<Return>", opts)
+
+-- delete all buffers
+keymap.set("n", "<Leader>ba", ":bufdo bd<Return>", { noremap = true, silent = true, desc = "Delete all buffers" })

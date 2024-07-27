@@ -6,21 +6,8 @@ return {
         on_attach = function(bufnr)
           local api = require("nvim-tree.api")
 
-          local function opts(desc)
-            return {
-              desc = "nvim-tree: " .. desc,
-              buffer = bufnr,
-              noremap = true,
-              silent = true,
-              nowait = true,
-            }
-          end
-
           -- default mappings
           api.config.mappings.default_on_attach(bufnr)
-
-          -- custom mappings
-          vim.keymap.set("n", "t", api.node.open.tab, opts("Tab"))
         end,
 
         update_focused_file = {
