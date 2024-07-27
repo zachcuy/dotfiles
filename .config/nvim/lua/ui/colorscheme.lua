@@ -28,11 +28,16 @@ return {
       color_overrides = {},
       integrations = {
         aerial = true,
-        symbols_outline = true,
         alpha = true,
+        cmp = true,
         dashboard = true,
         dap = true,
+        dropbar = {
+          enabled = true,
+          color_mode = true,
+        },
         flash = true,
+        gitsigns = true,
         headlines = true,
         illuminate = true,
         indent_blankline = { enabled = true },
@@ -40,6 +45,10 @@ return {
         lsp_trouble = true,
         mason = true,
         markdown = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "",
+        },
         native_lsp = {
           enabled = true,
           virtual_text = {
@@ -61,26 +70,17 @@ return {
         navic = { enabled = true, custom_bg = "lualine" },
         neotest = true,
         noice = true,
-        semantic_tokens = true,
-        treesitter_context = true,
-        which_key = true,
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
         notify = true,
-        mini = {
-          enabled = true,
-          indentscope_color = "",
-        },
+        nvimtree = true,
+        semantic_tokens = true,
+        symbols_outline = true,
         telescope = {
           enabled = true,
           style = "nvchad",
         },
-        dropbar = {
-          enabled = true,
-          color_mode = true,
-        },
+        treesitter = true,
+        treesitter_context = true,
+        which_key = true,
       },
       custom_highlights = function(colors)
         return {
