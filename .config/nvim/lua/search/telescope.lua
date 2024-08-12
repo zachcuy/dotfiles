@@ -1,7 +1,6 @@
 return {
   -- https://github.com/nvim-telescope/telescope.nvim
   "nvim-telescope/telescope.nvim",
-  lazy = true,
   dependencies = {
     -- https://github.com/nvim-lua/plenary.nvim
     { "nvim-lua/plenary.nvim" },

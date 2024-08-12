@@ -1,13 +1,3 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
-
--- tabbing shit
--- vim.opt.tabstop = 4 -- Sets the number of spaces that a tab is represented by
--- vim.opt.shiftwidth = 4 -- Sets the width for autoindents
--- vim.opt.softtabstop = 4 -- Sets the width for a TAB (the actual tab character, not spaces)
--- vim.opt.expandtab = true -- Converts tabs to spaces
-
 -- host stuff
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.loaded_perl_provider = 0
@@ -101,7 +91,7 @@ vim.opt.updatetime = 50
 vim.opt.autoread = true
 
 -- Highlight column 80 to help keep code within that limit
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 
 -- Set options for session saving
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }

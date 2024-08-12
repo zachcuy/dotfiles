@@ -12,16 +12,6 @@ keymap.set("n", "-", "<C-x>")
 -- select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
--- save file and quit
-keymap.set("n", "<Leader>w", ":update<Return>", opts)
-keymap.set("n", "<Leader>q", ":quit<Return>", opts)
-keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
-
--- file explorer with NvimTree
-keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
-keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
-keymap.set("n", "<Leader>e", ":NvimTreeToggle<Return>", opts)
-
 -- split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
@@ -37,9 +27,6 @@ keymap.set("n", "<C-S-h>", "2<C-w><", opts)
 keymap.set("n", "<C-S-l>", "2<C-w>>", opts)
 keymap.set("n", "<C-S-k>", "2<C-w>+", opts)
 keymap.set("n", "<C-S-j>", "2<C-w>-", opts)
-
--- close buffer without closing window
-keymap.set("n", "<C-w>q", ":new<BAR>bd#<CR>", opts)
 
 -- move up/down work on wrapped lines of text
 keymap.set("n", "j", "gj", opts)
@@ -61,11 +48,9 @@ keymap.set("n", "N", "Nzz", opts)
 keymap.set("v", "p", "P", opts)
 keymap.set("v", "P", "p", opts)
 
--- search notifications
-keymap.set("n", "<Leader>xp", ":Telescope notify<Return>", opts)
-
 -- open oil
 keymap.set("n", "<Leader>o", ":Oil<Return>", opts)
+keymap.set("n", "<Leader>e", ":Oil<Return>", opts)
 
 -- delete all buffers
 keymap.set("n", "<Leader>ba", ":bufdo bd<Return>", { noremap = true, silent = true, desc = "Delete all buffers" })
