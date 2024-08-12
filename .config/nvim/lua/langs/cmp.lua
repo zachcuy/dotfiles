@@ -9,7 +9,6 @@ local M = {
     "hrsh7th/cmp-path",
     "f3fora/cmp-spell",
     "lukas-reineke/cmp-rg",
-    "kristijanhusak/vim-dadbod-completion",
 
     -- snippets
     "L3MON4D3/LuaSnip",
@@ -34,7 +33,6 @@ M.config = function()
   local cmp = require("cmp")
   local compare = require("cmp.config.compare")
   local luasnip = require("luasnip")
-  local lspkind = require("lspkind")
 
   cmp.setup({
     completion = {
@@ -43,8 +41,6 @@ M.config = function()
 
     mapping = {
       ["<C-e>"] = cmp.mapping.abort(),
-      -- ["<Down>"] = cmp.mapping.abort(),
-      -- ["<Up>"] = cmp.mapping.abort(),
 
       ["<C-j>"] = cmp.mapping.scroll_docs(4),
       ["<C-k>"] = cmp.mapping.scroll_docs(-4),
@@ -115,29 +111,6 @@ M.config = function()
         compare.length,
         compare.order,
       },
-    },
-
-    formatting = {
-      fields = { "kind", "abbr", "menu" },
-      expandable_indicator = true,
-      format = function(entry, vim_item)
-        -- don't allow multiple entries for the same thing if it's provided by nvim_lsp
-        local source = entry.source.name
-        if source == "nvim_lsp" then
-          vim_item.dup = nil
-        end
-
-        local kind = lspkind.cmp_format({
-          mode = "symbol_text",
-          maxwidth = 50,
-        })(entry, vim_item)
-
-        local strings = vim.split(kind.kind, "%s", { trimempty = true })
-        kind.kind = " " .. strings[1] .. " "
-        kind.menu = "    (" .. strings[2] .. ")   "
-
-        return kind
-      end,
     },
 
     view = {
