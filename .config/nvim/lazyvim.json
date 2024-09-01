@@ -1,11 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.mini-comment",
     "lazyvim.plugins.extras.coding.mini-surround",
-    "lazyvim.plugins.extras.dap.core",
-    "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.util.mini-hipatterns",
-    "lazyvim.plugins.extras.vscode"
+    "lazyvim.plugins.extras.lang.typescript"
   ],
   "news": {
     "NEWS.md": "6520"
