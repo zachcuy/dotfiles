@@ -5,6 +5,10 @@ return {
       inlay_hints = { enabled = false },
     },
   },
+  {
+    "mfussenegger/nvim-dap",
+    config = function() end,
+  },
   { "nvim-treesitter/nvim-treesitter", opts = {
     ensure_installed = { "java" },
   } },
